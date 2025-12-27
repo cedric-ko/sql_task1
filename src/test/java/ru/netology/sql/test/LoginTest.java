@@ -59,7 +59,7 @@ public class LoginTest {
 
     @Test
     void shouldGetErrorNotificationWithInvalidCode() { // должен получить уведомление об ошибке при невалидном коде подтверждения
-        var verificationPage = loginPage.validLogin(authInfo); // вводим валидные имя и пароль, нажимаем кнопку, входим на страницу верификации        var verificationCode = DataHelper.getRandomVerificationCode(); // получаем рандомный код верификации
+        var verificationPage = loginPage.validLogin(authInfo); // вводим валидные имя и пароль, нажимаем кнопку, входим на страницу верификации
         var verificationCode = DataHelper.getRandomVerificationCode(); // получаем рандомный код верификации
         verificationPage.verify(String.valueOf(verificationCode)); // вводим рандомный код, нажимаем кнопку
         verificationPage.checkErrorNotification("Ошибка! Неверно указан код! Попробуйте ещё раз."); //получаем уведомление
