@@ -45,7 +45,7 @@ public class LoginTest {
     void shouldGetErrorNotificationWithInvalidLogin() { // должен получить уведомление об ошибке при невалидном логине
         var authInfo = DataHelper.getAuthInfo(); // создаём переменную, в которой поменяем логин на рандомный
         var authInfoWithInvalidLogin = new DataHelper.AuthInfo(DataHelper.getRandomLogin(), authInfo.getPassword()); // создаём данные для авторизации с рандомным логином
-        loginPage.login(authInfo); // вводим данные для авторизации, нажимаем кнопку
+        loginPage.login(authInfoWithInvalidLogin); // вводим данные для авторизации, нажимаем кнопку
         loginPage.checkErrorNotification("Ошибка! Неверно указан логин или пароль"); //получаем уведомление
     }
 
@@ -53,7 +53,7 @@ public class LoginTest {
     void shouldGetErrorNotificationWithInvalidPassword() { // должен получить уведомление об ошибке при невалидном пароле
         var authInfo = DataHelper.getAuthInfo(); // создаём переменную, в которой поменяем пароль на рандомный
         var authInfoWithInvalidPassword = new DataHelper.AuthInfo(authInfo.getLogin(), DataHelper.getRandomPassword()); // создаём данные для авторизации с рандомным паролем
-        loginPage.login(authInfo); // вводим данные для авторизации, нажимаем кнопку
+        loginPage.login(authInfoWithInvalidPassword); // вводим данные для авторизации, нажимаем кнопку
         loginPage.checkErrorNotification("Ошибка! Неверно указан логин или пароль"); //получаем уведомление
     }
 
